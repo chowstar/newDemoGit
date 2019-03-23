@@ -1,0 +1,119 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="../css/aui.css" />
+    <style type="text/css">
+    /*.aui-list {
+        background-image: linear-gradient(#ffffff, #ffffff);
+    }*/
+    .form-btn {
+      padding: 30px 30px 15px 30px;
+    }
+    .aui-btn-080DFF {
+      background: #BFBFBF !important;
+      color: #000 !important;
+      font-weight: bolder;
+      border: none;
+      outline: none;
+    }
+    .form-btn button:active {
+      /*background: rgba(255,152,0,0.8) !important;*/
+      background: #BFBFBF !important;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="aui-content aui-margin-b-15">
+        <ul class="aui-list aui-form-list">
+            <li class="aui-list-item">
+                <div class="aui-list-item-inner">
+                    <div class="aui-list-item-label">
+                        原始密码
+                    </div>
+                    <div class="aui-list-item-input">
+                        <input type="text" placeholder="原密码" id='oldpassword'>
+                    </div>
+                </div>
+            </li>
+            <li class="aui-list-item">
+                <div class="aui-list-item-inner">
+                    <div class="aui-list-item-label">
+                        新的密码
+                    </div>
+                    <div class="aui-list-item-input">
+                        <input type="text" placeholder="新密码" id='password'>
+                    </div>
+                </div>
+            </li>
+            <!-- <li class="aui-list-item">
+                <div class="aui-list-item-inner">
+                    <div class="aui-list-item-label">
+                        确认密码
+                    </div>
+                    <div class="aui-list-item-input">
+                        <input type="text" placeholder="确认密码" id='password1'>
+                    </div>
+                </div>
+            </li> -->
+        </ul>
+    </div>
+    <div class="form-btn">
+      <button class="aui-btn  aui-btn-block aui-btn-080DFF" id="password-btn" tapmode onclick="password()">
+        确  认
+      </button>
+    </div>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/api-config.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+<script type="text/javascript" src="../script/aui-toast.js"></script>
+<script type="text/javascript">
+password = function(){
+
+  var uid = $api.getStorage('uid');
+  var oldpassword = $api.val($api.byId('oldpassword'));
+  var password = $api.val($api.byId('password'));
+  // var password1 = $api.val($api.byId('password1'));
+  if(!oldpassword){
+    showToast('请输入原密码！');
+    return false;
+  }
+  if(!password){
+    showToast('请输入新密码！');
+    return false;
+  }
+  var toast = showLoading();
+  $api.post(app_user_update,{
+    values: {
+      'uid':uid,
+      'oldpassword':oldpassword,
+      'password':password
+    }
+  },function(ret,err){
+    if (ret.code == 0) {
+      api.alert({ msg: ret.msg});
+      api.openWin({
+        name: 'index',
+        url: 'widget://index.html',
+        delay: 1000,
+        // allowEdit:aedit,
+        // pageParam: param,
+        // slidBackEnabled:true,
+        // 	vScrollBarEnabled:false
+      });
+
+    } else if(ret.msg){
+      api.alert({ msg: ret.msg});
+    }
+    toast.hide();
+  },'json');
+}
+</script>
+
+</html>

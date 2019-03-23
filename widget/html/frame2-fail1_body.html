@@ -1,0 +1,452 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="../css/aui.css" />
+    <style type="text/css">
+        .aui-list1 {
+            background-image: linear-gradient(#ffffff, #ffffff);
+        }
+
+        .aui-list-pic {
+            width: 100%;
+            font-size: 14px;
+            font-weight: 700;
+            height: 95.499999px;
+            font-style: italic;
+            color: #dddddd;
+            display: flex;
+            align-items: center;
+        }
+
+        .aui-list .aui-list-item-nameone {
+            width: 30%;
+            font-size: 16px;
+            font-family: PingFangSC-Regular;
+            color: rgba(153, 153, 153, 1);
+        }
+
+        .aui-list .aui-list-item-nametwo {
+            font-size: 16px;
+            font-family: PingFangSC-Regular;
+            color: rgba(0, 0, 0, 1);
+        }
+
+        .aui-list .aui-list-item-liner-none {
+            background-image: linear-gradient(#ffffff, #ffffff);
+        }
+
+        .aui-liner {
+            margin-top: 11px;
+            margin-bottom: 15px;
+            width: 375px;
+            height: 5px;
+            background: rgba(235, 235, 235, 1);
+        }
+
+        .aui-name {
+            height: 25px;
+            font-size: 18px;
+            font-family: PingFangSC-Medium;
+            color: rgba(0, 0, 0, 1);
+            line-height: 25px;
+            padding-left: 0.75rem;
+            background-color: #fff;
+        }
+
+        .aui-border {
+            padding-left: 0.75rem;
+            height: 33px;
+            background: linear-gradient(180deg, rgba(250, 250, 250, 1), rgba(242, 242, 242, 1));
+            border-radius: 4px;
+            border: 1px solid rgba(225, 225, 225, 1);
+        }
+
+        .aui-list-item-descrp {
+            width: 30%;
+            text-align: center;
+        }
+
+        .aui-list-item-descrp-text {
+            margin: 0 auto;
+            font-size: 14px;
+        }
+
+        .aui-list-item-descrp1 {
+            background-color: #bfbfbf;
+            width: 30%;
+            font-size: 14px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+        }
+
+        .aui-list-item-middle {
+            text-align: center;
+        }
+
+        .aui-grid .aui-col-xs-6-padding {
+            padding: 0.5rem;
+        }
+
+        .aui-border {
+            border-right: 1px solid #dddddd;
+            height: 100px;
+        }
+
+        .aui-list .aui-list-item-font {
+            font-size: 0.75rem;
+        }
+
+        .aui-list .aui-list-item-padding-right {
+            padding-right: 0;
+        }
+
+        .aui-list .aui-list-item-padding-left {
+            padding-left: 0;
+        }
+
+        .aui-list .aui-list-item-text1 {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            color: #A5A5A5
+        }
+
+        .aui-list .aui-list-item-text2 {
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            color: #000
+        }
+
+        .aui-list .aui-list-item-text3 {
+            text-align: center;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            color: #000;
+            background-color: #ededf2;
+            height: 44px;
+            line-height: 44px;
+            width:100%;
+        }
+
+        .aui-list .aui-list-item-text4 {
+            text-align: center;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            color: #000;
+            background-color: #e1e1e6;
+            height: 44px;
+            line-height: 44px;
+            width:100%;
+        }
+        .aui-list .aui-list-item-text5 {
+            text-align: center;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            color: #000;
+            background-color: #fcfcfc;
+            height: 44px;
+            line-height: 44px;
+            width:100%;
+        }
+
+        .aui-list .aui-list-item-text6 {
+            text-align: center;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            color: #000;
+            background-color: #ededf2;
+            height: 44px;
+            line-height: 44px;
+            width:100%;
+        }
+        .aui-list .aui-list-item-inner1 {
+            text-align: center;
+            padding-right: 12px;
+            padding-left: 12px;
+            border-bottom: 1px solid #fff;
+        }
+
+        .aui-list .aui-list-item-0070C0 {
+            color: #0070C0;
+        }
+
+        .aui-list .aui-list-item-border {
+            border-bottom: 1px solid #fff;
+        }
+
+        .aui-content {
+            background: rgba(249, 249, 249, 1);
+        }
+
+        .aui-list-pic-text {
+            font-size: 14px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+
+        .aui-list-pic {
+            padding-left: 0.75rem;
+            padding-right: 0.75rem;
+            width: 100%;
+            font-size: 14px;
+            font-weight: 700;
+            height: 95.499999px;
+            font-style: italic;
+            color: #dddddd;
+            display: flex;
+            align-items: center;
+        }
+
+        .aui-list-border-text {
+            width: 55%;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="aui-content">
+        <div style="width:100%;background-color:#fff;">
+            <ul class="aui-list aui-media-list aui-list-item-padding-right" style="font-size:1rem;;margin-bottom:0.25rem;border:none；background-image: linear-gradient(#ffffff, #ffffff);">
+                <li class="aui-list aui-list-noborder aui-list-item-padding-left aui-list-item-padding-right">
+                    <div class="aui-media-list-item-inner">
+                        <div class="aui-list-item-inner aui-list-item-padding-right aui-list-item-font" style="padding-top:0;">
+                            <div style="float:left;width:24%;">
+                                <div class="aui-list-item-text3">流水号</div>
+                                <div class="aui-list-item-text4">车牌号</div>
+                                <div class="aui-list-item-text3">货物名称</div>
+                                <div class="aui-list-item-text4">规格型号</div>
+                                <div class="aui-list-item-text3">计量单位</div>
+                                <div class="aui-list-item-text4">毛重时间</div>
+                                <div class="aui-list-item-text3">毛重</div>
+                                <div class="aui-list-item-text4">皮重时间</div>
+                                <div class="aui-list-item-text3">皮重</div>
+                                <div class="aui-list-item-text4" >净重时间</div>
+                                <div class="aui-list-item-text3" >净重</div>
+                                <div class="aui-list-item-text4" >扣杂</div>
+                                <div class="aui-list-item-text3" >实际净重</div>
+                                <div class="aui-list-item-text4" >单价</div>
+                                <div class="aui-list-item-text3" >金额</div>
+                                <div class="aui-list-item-text4" >验质状态</div>
+                                <div class="aui-list-item-text3" >验质说明</div>
+                                <div class="aui-list-item-text4" >发货单位</div>
+                                <div class="aui-list-item-text3" >收货单位</div>
+                                <div class="aui-list-item-text4" >运输单位</div>
+                                <div class="aui-list-item-text3" >司机</div>
+                                <div class="aui-list-item-text4" >重印</div>
+                                <div class="aui-list-item-text3" >ic卡号</div>
+                                <div class="aui-list-item-text4" >二次过磅</div>
+                                <div class="aui-list-item-text3" >二次流水</div>
+                                <div class="aui-list-item-text4" >操作员</div>
+                                <div class="aui-list-item-text3" >备注</div>
+                                <div class="aui-list-item-text4" >更新时间</div>
+                            </div>
+                            <div style="float:left;width:76%;">
+                                <div class="aui-list-item-text5" id='F_StdNo'></div>
+                                <div class="aui-list-item-text6" id="F_CarNo"></div>
+                                <div class="aui-list-item-text5" id="F_ProName"></div>
+                                <div class="aui-list-item-text6" id="F_ProModel"></div>
+                                <div class="aui-list-item-text5" id="F_Unit"></div>
+                                <div class="aui-list-item-text6" id="F_GrossTime"></div>
+                                <div class="aui-list-item-text5" id="F_Gross"></div>
+                                <div class="aui-list-item-text6" id="F_TareTime"></div>
+                                <div class="aui-list-item-text5" id="F_Tare"></div>
+                                <div class="aui-list-item-text6" id="F_NetTime"></div>
+                                <div class="aui-list-item-text5" id="F_Net"></div>
+                                <div class="aui-list-item-text6" id='F_Deduct'></div>
+                                <div class="aui-list-item-text5" id="F_Fact"></div>
+                                <div class="aui-list-item-text6" id="F_Price"></div>
+                                <div class="aui-list-item-text5" id="F_Money"></div>
+                                <div class="aui-list-item-text6" id="F_YLFlt1"></div>
+                                <div class="aui-list-item-text5" id="F_YLStr4"></div>
+                                <div class="aui-list-item-text6" id="F_unitFrom"></div>
+                                <div class="aui-list-item-text5" id="F_UnitTo"></div>
+                                <div class="aui-list-item-text6" id="F_Transport"></div>
+                                <div class="aui-list-item-text5" id="F_Driver"></div>
+                                <div class="aui-list-item-text6" id="F_RePrint"></div>
+                                <div class="aui-list-item-text5" id="F_YLStr1"></div>
+                                <div class="aui-list-item-text6" id="F_YLStr2"></div>
+                                <div class="aui-list-item-text5" id="F_YLStr3"></div>
+                                <div class="aui-list-item-text6" id="F_opMan"></div>
+                                <div class="aui-list-item-text5" id="F_Memo"></div>
+                                <div class="aui-list-item-text6" id="F_YLStr5"></div>
+                            </div>
+                            <!-- <div class="aui-list-item-text1">
+                                <div style="float:left;">毛重时间</div>
+                                <div id='F_GrossTime' style="float:left;margin-left:0.5rem" class="aui-list-item-text2"></div>
+                                <div style="float:right;margin-left:0.5rem">毛重</div>
+                                <div id='F_Gross' style="float:left;margin-left:0.5rem" class="aui-list-item-text2">0</div>
+                            </div>
+                            <div class="aui-list-item-text1">
+                                <div style="float:left;">皮重时间</div>
+                                <div id='F_TareTime' style="float:left;margin-left:0.5rem" class="aui-list-item-text2"></div>
+                                <div style="float:right;margin-left:0.5rem">皮重</div>
+                                <div id='F_Tare' style="float:left;margin-left:0.5rem" class="aui-list-item-text2">0</div>
+                            </div>
+                            <div class="aui-list-item-text1">
+                                <div style="float:left;">净重时间</div>
+                                <div id='F_NetTime' style="float:left;margin-left:0.5rem" class="aui-list-item-text2"></div>
+                                <div style="float:right;margin-left:0.5rem">净重</div>
+                                <div id='F_Net' style="float:left;margin-left:0.5rem" class="aui-list-item-text2">0</div>
+                            </div> -->
+                        </div>
+                    </div>
+                    <div class="aui-list-item-media" style="padding:0;width:auto;">
+                    </div>
+                </li>
+            </ul>
+            <div style="height:10px;background-color:#fff;"></div>
+            <div class="aui-name">毛重照片组</div>
+            <ul class="aui-list aui-list-in aui-list1">
+
+                <li class=" aui-list-item" style="display:flex;align-items:center;padding-left:0;background-image: linear-gradient(#ffffff, #ffffff);">
+                    <div class="aui-list-pic">
+                        <!-- <div style="width:100%;text-align:center;font-style: italic;">图片支持点击放大</div> -->
+                        <div class="aui-grid">
+                            <div id='list_maozhong'></div>
+
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <div class="aui-name">验质照片组</div>
+            <ul class="aui-list aui-list-in aui-list1">
+                <li class=" aui-list-item" style="display:flex;align-items:center;padding-left:0;background-image: linear-gradient(#ffffff, #ffffff);">
+                    <div class="aui-list-pic">
+                        <!-- <div style="width:100%;text-align:center;font-style: italic;">图片支持点击放大</div> -->
+                        <div class="aui-grid" style="display:flex;align-items:cemter;">
+                            <div id='list_yanzhi'></div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <div class="aui-name">皮重照片组</div>
+            <ul class="aui-list aui-list-in aui-list1">
+                <li class=" aui-list-item" style="display:flex;align-items:center;padding-left:0;background-image: linear-gradient(#ffffff, #ffffff);">
+                    <div class="aui-list-pic">
+                        <div class="aui-grid">
+                            <div id='list_pizhong'></div>
+
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <div style="height:15px;background-color:#fff;"></div>
+        </div>
+    </div>
+</body>
+<script type="text/template" id="template">
+    {{~it:value:index}}
+
+    <div class="aui-col-5" style="padding:0;">
+        <img name="maozhong" src="{{=value.F_ImageURL}}" height="100%" width="100%" style="padding:0.05rem" id='image{{=index+1}}' onclick="imageBrowser('{{=value.F_ImageURL}}')">
+    </div>
+
+    {{~}}
+</script>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/api-config.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+<script type="text/javascript" src="../script/aui-toast.js"></script>
+<script type="text/javascript" src="../script/doT.min.js"></script>
+<script type="text/javascript">
+    apiready = function() {
+        init();
+    }
+    init = function() {
+            $api.get(app_detail + '?f_stdno=' + api.pageParam.f_stdno, function(ret) {
+                // console.log(JSON.stringify(ret.data));
+                if (ret.data) {
+                    $api.html($api.byId('F_StdNo'), ret.data.F_StdNo);
+                    $api.html($api.byId('F_ProName'), ret.data.F_ProName);
+                    $api.html($api.byId('F_CarNo'), ret.data.F_CarNo);
+                    $api.html($api.byId('F_Unit'), ret.data.F_Unit);
+                    $api.html($api.byId('F_GrossTime'), ret.data.F_GrossTime);
+                    $api.html($api.byId('F_Gross'), ret.data.F_Gross);
+                    $api.html($api.byId('F_TareTime'), ret.data.F_TareTime);
+                    $api.html($api.byId('F_Tare'), ret.data.F_Tare);
+                    $api.html($api.byId('F_NetTime'), ret.data.F_NetTime);
+                    $api.html($api.byId('F_Net'), ret.data.F_Net);
+                    $api.html($api.byId('F_ProModel'), ret.data.F_ProModel);
+                    $api.html($api.byId('F_unitFrom'), ret.data.F_unitFrom);
+                    $api.html($api.byId('F_UnitTo'), ret.data.F_UnitTo);
+                    $api.html($api.byId('F_Transport'), ret.data.F_Transport);
+                    $api.html($api.byId('F_Driver'), ret.data.F_Driver);
+                    $api.html($api.byId('F_opMan'), ret.data.F_opMan);
+                    $api.html($api.byId('F_Memo'), ret.data.F_Memo);
+                    $api.html($api.byId('F_RePrint'), ret.data.F_RePrint);
+                    $api.html($api.byId('F_Deduct'), ret.data.F_Deduct);
+                    $api.html($api.byId('F_Fact'), ret.data.F_Fact);
+                    $api.html($api.byId('F_Price'), ret.data.F_Price);
+                    $api.html($api.byId('F_Money'), ret.data.F_Money);
+                    $api.html($api.byId('F_YLStr1'), ret.data.F_YLStr1);
+                    $api.html($api.byId('F_YLStr2'), ret.data.F_YLStr2);
+                    $api.html($api.byId('F_YLStr3'), ret.data.F_YLStr3);
+                    $api.html($api.byId('F_YLStr4'), ret.data.F_YLStr4);
+                    $api.html($api.byId('F_YLStr5'), ret.data.F_YLStr5);
+                    $api.html($api.byId('F_YLStr6'), ret.data.F_YLStr6);
+                    if (ret.data.F_YLFlt1 == 0) {
+                        $api.html($api.byId('F_YLFlt1'), '等待验资');
+                    } else if (ret.data.F_YLFlt1 == 1) {
+                        $api.html($api.byId('F_YLFlt1'), '验资通过');
+                    } else {
+                        $api.html($api.byId('F_YLFlt1'), '验资未通过');
+                    }
+
+
+                }
+
+                if (ret.images) {
+// console.log(JSON.stringify(ret.images));
+                    var list_maozhong = $api.byId('list_maozhong');
+                    var list_yanzhi = $api.byId('list_yanzhi');
+                    var list_pizhong = $api.byId('list_pizhong');
+                    var tempFn = doT.template($api.byId('template').innerHTML);
+
+                    var resultHTML1 = tempFn(ret.images.maozhong);
+                    var resultHTML2 = tempFn(ret.images.yanzhi);
+                    var resultHTML3 = tempFn(ret.images.pizhong);
+
+                    $api.html(list_maozhong, resultHTML1);
+                    $api.html(list_yanzhi, resultHTML2);
+                    $api.html(list_pizhong, resultHTML3);
+
+                    // 由于是动态的将元素添加到Dom树上，所以需要手动触发tapmode检查，列表中的元素才能实现点击加速的效果
+                    api.parseTapmode();
+                }
+            }, 'json');
+        }
+        // var el=document.querySelector("#show");
+    function imageBrowser(src) {
+        // index = index || 1;
+        // var image_i = 'image' + index;
+        // var images = $api.attr($api.byId(image_i), 'src');
+        var imageBrowser = api.require('imageBrowser');
+        imageBrowser.openImages({
+            showList: false,
+            tapClose: true,
+            imageUrls: [
+                src
+            ]
+        });
+    }
+</script>
+
+</html>

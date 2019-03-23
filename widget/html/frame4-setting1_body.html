@@ -1,0 +1,145 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="../css/aui.css" />
+    <style type="text/css">
+        /*.aui-list {
+            background-image: linear-gradient(#ffffff, #ffffff);
+        }*/
+
+        .aui-list-item-lt {
+            width: 80%;
+            float: left;
+            border-right: 1px solid #ddd;
+        }
+
+        /*.aui-list-item-md {
+            width: 15%;
+            float: left;
+            border-right: 1px solid #BFBFBF;
+        }*/
+
+        .aui-list-item-rt {
+            width: 20%;
+            float: left;
+        }
+
+        .aui-list .aui-list-item1 {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .img_wrap {
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body id='list'>
+    <script type="text/template" id="template">
+        {{~it:value:index}}
+        <div class="aui-content aui-content-nobreak">
+            <div class='aui-list-item-lt'>
+                <ul class="aui-list aui-list-in" style="background-image: linear-gradient(#ffffff, #ffffff);" >
+                    <li class="aui-list-item aui-list-item1">
+                        <div class="aui-list-item-inner">
+                            <div class="aui-list-item-title">{{=value.content}}</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <!-- <div class='aui-list-item-md'>
+                <ul class="aui-list aui-list-in" style="background-image:linear-gradient(#dddddd,#dddddd)">
+                    <li class="aui-list-item" style="padding-left:0;">
+                        <div class="img_wrap">
+                            <img src="../image/up.png" width="24px" height="24px" />
+                        </div>
+                    </li>
+                </ul>
+            </div> -->
+            <div class='aui-list-item-rt'>
+                <ul class="aui-list aui-list-in" style="background-image: linear-gradient(#ffffff, #ffffff);">
+                    <li class="aui-list-item" style="padding-left:0;" tapmode onclick="setting_del('{{=value.id}}')">
+                        <div class="img_wrap">
+                            删除
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        {{~}}
+    </script>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+<script type="text/javascript" src="../script/api-config.js"></script>
+<script type="text/javascript" src="../script/doT.min.js"></script>
+<script type="text/javascript">
+    apiready = function() {
+      init();
+    }
+
+    init = function(){
+      $api.get(app_setting + '?uid=' + $api.getStorage("uid"),function(ret){
+        // console.log(JSON.stringify(ret.data));
+          if (ret.data) {
+            var list = $api.byId('list');
+
+            var tempFn = doT.template($api.byId('template').innerHTML);
+              var resultHTML = tempFn(ret.data);
+
+              $api.html(list, resultHTML);
+
+              // 由于是动态的将元素添加到Dom树上，所以需要手动触发tapmode检查，列表中的元素才能实现点击加速的效果
+              api.parseTapmode();
+          }
+
+      },'json');
+    }
+
+    setting_del = function(id){
+      api.confirm({
+          title: '删除',
+          msg: '确定删除吗？',
+          buttons: ['确定', '取消']
+      }, function(ret, err) {
+          var index = ret.buttonIndex;
+          if(index == 1){
+            $api.post(app_setting_del,{
+      				values: {
+      					'id':id,
+      				}
+      			},function(ret,err){
+      				if (ret.code == 0) {
+      					window.location.reload();
+      				} else if(ret.msg){
+      					api.alert({ msg: ret.msg});
+      				}
+      			},'json');
+          }
+      });
+
+		}
+    // function getList(){
+    //   console.log(uid)
+    //     $api.get(app_setting + '?uid = $api.getStorage('uid')', {},
+    //         function(ret, err) {
+    //             if (data) {
+    //               var tempFn = doT.template($api.byId('template').innerHTML);
+    //                 var resultHTML = tempFn(ret.data);
+    //             } else {
+    //                 api.alert({ msg: 没有内容！});
+    //             }
+    //         }, 'json');
+    // }
+</script>
+
+</html>

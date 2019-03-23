@@ -1,0 +1,639 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="../css/aui.css" />
+    <style type="text/css">
+        .aui-list1 {
+            background-image: linear-gradient(#ffffff, #ffffff);
+        }
+
+        .aui-list-pic {
+            width: 100%;
+            font-size: 14px;
+            font-weight: 700;
+            height: 95.499999px;
+            font-style: italic;
+            color: #dddddd;
+            display: flex;
+            align-items: center;
+        }
+
+        .aui-list .aui-list-item-nameone {
+            width: 30%;
+            font-size: 16px;
+            font-family: PingFangSC-Regular;
+            color: rgba(153, 153, 153, 1);
+        }
+
+        .aui-list .aui-list-item-nametwo {
+            font-size: 16px;
+            font-family: PingFangSC-Regular;
+            color: rgba(0, 0, 0, 1);
+        }
+
+        .aui-list .aui-list-item-liner-none {
+            background-image: linear-gradient(#ffffff, #ffffff);
+        }
+
+        .aui-liner {
+            margin-top: 11px;
+            margin-bottom: 15px;
+            width: 375px;
+            height: 5px;
+            background: rgba(235, 235, 235, 1);
+        }
+
+        .aui-name {
+            height: 25px;
+            font-size: 18px;
+            font-family: PingFangSC-Medium;
+            color: rgba(0, 0, 0, 1);
+            line-height: 25px;
+            padding-left: 0.75rem;
+        }
+
+        .aui-border {
+            padding-left: 0.75rem;
+            height: 33px;
+            background: linear-gradient(180deg, rgba(250, 250, 250, 1), rgba(242, 242, 242, 1));
+            border-radius: 4px;
+            border: 1px solid rgba(225, 225, 225, 1);
+        }
+
+        .aui-textarea {
+            padding-left: 0.25rem;
+            padding-right: 0.25rem;
+            height: 104px;
+            background: rgba(255, 255, 255, 1);
+            border-radius: 4px;
+            border: 1px solid rgba(224, 224, 224, 1);
+        }
+
+        .aui-btn-font {
+            font-size: 17px;
+            font-family: PingFangSC-Regular;
+            color: rgba(192, 192, 192, 1);
+            height: 2rem;
+            line-height: 2rem;
+        }
+
+        .foot {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            position: fixed;
+            bottom: 0;
+            height: 49px;
+            background: rgba(204, 204, 204, 1);
+            z-index: 999
+        }
+
+        .foot-text {
+            text-align: center;
+            width: 100%;
+            color: rgba(244, 244, 244, 1);
+            font-size: 17px;
+            font-family: PingFangSC-Regular;
+        }
+
+        .background-03A9F4 {
+            background: #03A9F4;
+        }
+        .list_yanzhi>.aui-col-xs-6{
+          position: relative;
+        }
+        .image-close {
+            position: absolute;
+            width: 28px;
+            height: 28px;
+            /*font-size: 24px;*/
+            z-index: 99;
+            right: 0.125rem;
+            top: 0.125rem;
+            font-weight: 700;
+        }
+        .aui-list .aui-list-item-font {
+            font-size: 0.75rem;
+        }
+
+        .aui-list .aui-list-item-padding-right {
+            padding-right: 0;
+        }
+
+        .aui-list .aui-list-item-padding-left {
+            padding-left: 0;
+        }
+
+                .aui-list .aui-list-item-text3 {
+                    text-align: center;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    color: #000;
+                    background-color: #ededf2;
+                    height: 44px;
+                    line-height: 44px;
+                    width:100%;
+                }
+
+                .aui-list .aui-list-item-text4 {
+                    text-align: center;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    color: #000;
+                    background-color: #e1e1e6;
+                    height: 44px;
+                    line-height: 44px;
+                    width:100%;
+                }
+                .aui-list .aui-list-item-text5 {
+                    text-align: center;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    color: #000;
+                    background-color: #fcfcfc;
+                    height: 44px;
+                    line-height: 44px;
+                    width:100%;
+                }
+
+                .aui-list .aui-list-item-text6 {
+                    text-align: center;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    color: #000;
+                    background-color: #ededf2;
+                    height: 44px;
+                    line-height: 44px;
+                    width:100%;
+                }
+    </style>
+</head>
+
+<body>
+    <div class="aui-content">
+        <ul class="aui-list aui-media-list aui-list-item-padding-right" style="font-size:1rem;;margin-bottom:0.25rem;border:none；background-image: linear-gradient(#ffffff, #ffffff);">
+            <li class="aui-list aui-list-noborder aui-list-item-padding-left aui-list-item-padding-right">
+                <div class="aui-media-list-item-inner">
+                    <div class="aui-list-item-inner aui-list-item-padding-right aui-list-item-font" style="padding-top:0;">
+                        <div style="float:left;width:24%;">
+                            <div class="aui-list-item-text3">流水号</div>
+                            <div class="aui-list-item-text4">货物名称</div>
+                            <div class="aui-list-item-text3">毛重时间</div>
+                            <div class="aui-list-item-text4">毛重</div>
+                            <div class="aui-list-item-text3">皮重时间</div>
+                            <div class="aui-list-item-text4">皮重</div>
+                        </div>
+                        <div style="float:left;width:76%;">
+                            <div class="aui-list-item-text5" id='F_StdNo'></div>
+                            <div class="aui-list-item-text6" id="F_ProName"></div>
+                            <div class="aui-list-item-text5" id="F_GrossTime"></div>
+                            <div class="aui-list-item-text6" id="F_Gross"></div>
+                            <div class="aui-list-item-text5" id="F_TareTime"></div>
+                            <div class="aui-list-item-text6" id="F_Tare"></div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <!-- <ul class="aui-list  aui-list1">
+            <li class="aui-list-item aui-list-item-liner-none" style="height:24px;line-height:24px;min-height:24px;">
+                <div class="aui-list-item-label-icon aui-list-item-nameone" style="padding-right:0.25rem;">
+                    流水号
+                </div>
+                <div id="F_ProName" class="aui-list-item-inner aui-list-item-nametwo" style="height:24px;line-height:24px;min-height:24px;">
+
+                </div>
+            </li>
+            <li class="aui-list-item aui-list-item-liner-none" style="height:24px;line-height:24px;min-height:24px;">
+                <div class="aui-list-item-label-icon aui-list-item-nameone" style="padding-right:0.25rem;">
+                    货物名称
+                </div>
+                <div id="F_CarNo" class="aui-list-item-inner aui-list-item-nametwo" style="height:24px;line-height:24px;min-height:24px;">
+
+                </div>
+            </li>
+            <li class="aui-list-item aui-list-item-liner-none" style="height:24px;line-height:24px;min-height:24px;">
+                <div class="aui-list-item-label-icon aui-list-item-nameone" style="padding-right:0.25rem;width:53%;">
+                    毛重时间
+                </div>
+                <div id="F_GrossTime" class="aui-list-item-inner aui-list-item-nametwo" style="height:24px;line-height:24px;min-height:24px;width:70%;">
+
+                </div>
+                <div class="aui-list-item-label-icon aui-list-item-nameone" style="padding-right:0.25rem;">
+                    毛重
+                </div>
+                <div id="F_Gross" class="aui-list-item-inner aui-list-item-nametwo" style="height:24px;line-height:24px;min-height:24px;width:70%;">
+
+                </div>
+            </li>
+            <li class="aui-list-item aui-list-item-liner-none" style="height:24px;line-height:24px;min-height:24px;">
+                <div class="aui-list-item-label-icon aui-list-item-nameone" style="padding-right:0.25rem;width:53%;">
+                    皮重时间
+                </div>
+                <div id="F_TareTime" class="aui-list-item-inner aui-list-item-nametwo" style="height:24px;line-height:24px;min-height:24px;width:70%;">
+
+                </div>
+                <div class="aui-list-item-label-icon aui-list-item-nameone" style="padding-right:0.25rem;">
+                    皮重
+                </div>
+                <div id="F_Tare" class="aui-list-item-inner aui-list-item-nametwo" style="height:24px;line-height:24px;min-height:24px;width:70%;">
+
+                </div>
+            </li>
+        </ul> -->
+        <div class='aui-liner'></div>
+        <div class="aui-name">验质说明</div>
+        <div class="aui-list-item-input aui-margin-t-10" style="margin-left: 0.75rem;margin-right: 0.75rem;">
+            <select id="list_yanzhishuoming" class="aui-border" onchange="chg(this)">
+                <!-- <option value="1">Option1</option>
+                <option value="2">Option2</option>
+                <option value="3">Option3</option> -->
+                <!-- <option value="0">手动输入</option> -->
+            </select>
+            <div class='aui-margin-t-15'></div>
+            <textarea id='select_else' class='aui-textarea' style="display:none;"></textarea>
+            <div class='aui-margin-t-15'></div>
+        </div>
+        <div class="aui-name aui-margin-b-10">验质结论</div>
+        <div class="aui-row aui-row-padded" style="margin-left: 0.75rem;margin-right: 0.75rem;">
+            <!-- <div class="aui-col-xs-4">
+                <div class="aui-btn aui-btn-block aui-btn-outlined aui-btn-font">等待验质</div>
+                <div class="aui-btn aui-btn-info  aui-btn-outlined aui-btn-font">等待验质</div>
+            </div> -->
+            <div class="aui-col-xs-4">
+                <div id="tongguo_btn" onclick='tongguo(1,this)' class="aui-btn aui-btn-block aui-btn-outlined aui-btn-font">通过</div>
+                <!-- <div onclick='tongguo()' class="aui-btn aui-btn-block aui-btn-font aui-btn-info" >通过</div> -->
+            </div>
+            <div class="aui-col-xs-4">
+                <div id="butongguo_btn" onclick='tongguo(2,this)' class="aui-btn aui-btn-block aui-btn-outlined aui-btn-font">不通过</div>
+                <!-- <div onclick='butongguo()' class="aui-btn aui-btn-block aui-btn-font aui-btn-danger">不通过</div> -->
+            </div>
+            <input type="hidden" id="yanzhijielun" value="" />
+        </div>
+        <div class="aui-name aui-margin-t-10 aui-margin-b-10" id='maozhongzhaopian'>毛重照片（0/4）</div>
+        <div id="list_yanzhi1" class="aui-row aui-row-padded" style="margin-left: 0.75rem;margin-right: 0.75rem;margin-bottom:59px;">
+
+            <div id="div_image11" class="aui-col-xs-6" onclick="imageBrowser(1,'maozhong')">
+                <img id="image11" src="../image/nopic.png" style="width:100%;"/>
+            </div>
+            <div id="div_image12" class="aui-col-xs-6" onclick="imageBrowser(2,'maozhong')">
+                <img id="image12" src="../image/nopic.png" style="width:100%;" />
+            </div>
+            <div id="div_image13" class="aui-col-xs-6" onclick="imageBrowser(3,'maozhong')">
+                <img id="image13" src="../image/nopic.png" style="width:100%;" />
+            </div>
+            <div id="div_image14" class="aui-col-xs-6" onclick="imageBrowser(4,'maozhong')">
+                <img id="image14" src="../image/nopic.png" style="width:100%;" />
+            </div>
+        </div>
+        <div class="aui-name aui-margin-t-10 aui-margin-b-10" id="yanzhizhaopian">验质照片（0/5）</div>
+        <div id="list_yanzhi" class="aui-row aui-row-padded" style="margin-left: 0.75rem;margin-right: 0.75rem;margin-bottom:59px;">
+            <div id="div_image1" class="aui-col-xs-6" onclick="openCamera(1)">
+                <img id="image1" src="../image/pic1.png" style="width:100%;"/>
+            </div>
+            <div id="div_image2" class="aui-col-xs-6" onclick="openCamera(2)">
+                <img id="image2" src="../image/pic1.png" style="width:100%;" />
+            </div>
+            <div id="div_image3" class="aui-col-xs-6" onclick="openCamera(3)">
+                <img id="image3" src="../image/pic1.png" style="width:100%;" />
+            </div>
+            <div id="div_image4" class="aui-col-xs-6" onclick="openCamera(4)">
+                <img id="image4" src="../image/pic1.png" style="width:100%;" />
+            </div>
+            <div id="div_image5" class="aui-col-xs-6" onclick="openCamera(5)">
+                <img id="image5" src="../image/pic1.png" style="width:100%;" />
+            </div>
+        </div>
+        <div id="post_btn" class="foot" onclick="post_yanzhi()">
+            <div class='foot-text'>提交验质报告</div>
+        </div>
+    </div>
+</body>
+<script type="text/template" id="yanzhishuoming">
+    {{~it:value:index}}
+    <option value="{{=value.content}}">{{=value.content}}</option>
+    {{~}}
+</script>
+<script type="text/template" id="template">
+    {{~it:value:index}}
+    <div id="div_image{{=index+1}}" class="aui-col-xs-6" onclick="imageBrowser({{=index+1}})">
+        <img id="image{{=index+1}}" src="{{=value}}" style="width:100%;" />
+    </div>
+    {{~}}
+</script>
+<script type="text/template" id="template_imagesYanzhiStorage">
+    {{~it:value:index}}
+    {{? value != '' }}
+    <div id="div_image{{=index+1}}" class="aui-col-xs-6" onclick="imageBrowser({{=index+1}})">
+        <img id="image{{=index+1}}" src="{{=value}}" style="width:100%;" />
+        <img src="../image/del@2x.png" id="div_image_i{{=index+1}}" class="image-close" onclick="close_image('{{=index+1}}');stopEvt(event);"></img>
+    </div>
+    {{??}}
+    <div id="div_image{{=index+1}}" class="aui-col-xs-6" onclick="openCamera({{=index+1}})">
+        <img id="image{{=index+1}}" src="../image/pic1.png" style="width:100%;" />
+    </div>
+    {{?}}
+    {{~}}
+</script>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/api-config.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+<script type="text/javascript" src="../script/aui-toast.js"></script>
+<script type="text/javascript" src="../script/doT.min.js"></script>
+<script type="text/javascript">
+
+    var imagesYanzhiStorage = ['','','','',''];// 本地保存验质拍摄的照片
+
+    apiready = function() {
+        initLocalStorage();
+        init();
+    }
+
+    function initLocalStorage(){
+      var _imagesYanzhiStorage = $api.getStorage(api.pageParam.f_stdno+'imagesYanzhiStorage');
+      if(_imagesYanzhiStorage){
+        imagesYanzhiStorage = JSON.parse(_imagesYanzhiStorage);
+        var list_yanzhi = $api.byId('list_yanzhi');
+        var tempFn = doT.template($api.byId('template_imagesYanzhiStorage').innerHTML);
+        var resultHTML = tempFn(imagesYanzhiStorage);
+        $api.html(list_yanzhi, resultHTML);
+        api.parseTapmode();
+
+        // 计算存储的个数
+        var imagesYanzhiStorage_count = 0;
+        for(var i=0;i<imagesYanzhiStorage.length;i++){
+          if(imagesYanzhiStorage[i] != ''){
+            imagesYanzhiStorage_count++;
+          }
+        }
+        images_count = imagesYanzhiStorage_count;
+        var _count = '验质照片（' + imagesYanzhiStorage_count + '/5）';
+        $api.html($api.byId('yanzhizhaopian'), _count);
+      }
+    }
+
+    var images1_count = 0;
+    init = function() {
+      for(var i=0;i<5;i++){
+        var str = i+1;
+        var image = document.getElementById('image'+str);
+        image.style.height = api.winWidth*1.1/3 + 'px';
+        if(i<4){
+          var image1 = document.getElementById('image1'+str);
+          image1.style.height = api.winWidth*1.1/3 + 'px';
+        }
+      }
+
+        $api.get(app_detail + '?f_stdno=' + api.pageParam.f_stdno, function(ret) {
+            // console.log(JSON.stringify(ret.data));
+            if (ret.data) {
+                $api.html($api.byId('F_ProName'), ret.data.F_ProName);
+                $api.html($api.byId('F_StdNo'), ret.data.F_StdNo);
+                $api.html($api.byId('F_GrossTime'), ret.data.F_GrossTime);
+                $api.html($api.byId('F_Gross'), ret.data.F_Gross);
+                $api.html($api.byId('F_TareTime'), ret.data.F_TareTime);
+                $api.html($api.byId('F_Tare'), ret.data.F_Tare);
+                // if (ret.data.F_YLFlt1 == 0) {
+                //     $api.html($api.byId('F_YLFlt1'), '等待验资');
+                // } else if (ret.data.F_YLFlt1 == 1) {
+                //     $api.html($api.byId('F_YLFlt1'), '验资通过');
+                // } else {
+                //     $api.html($api.byId('F_YLFlt1'), '验资未通过');
+                // }
+            }
+            if(ret.images.maozhong){
+              for(var i=0;i<ret.images.maozhong.length;i++){
+                images1_count = images1_count+1;
+                $api.attr($api.byId('image1'+(i+1)), 'src', ret.images.maozhong[i].F_ImageURL);
+              }
+              var _count = '毛重照片（' + images1_count + '/4）';
+              $api.html($api.byId('maozhongzhaopian'), _count);
+            }
+
+            if (ret.images.yanzhi && ret.images.yanzhi.length > 0) {
+                var list_yanzhi = $api.byId('list_yanzhi');
+                var tempFn = doT.template($api.byId('template').innerHTML);
+                var resultHTML = tempFn(ret.images.yanzhi);
+                $api.html(list_yanzhi, resultHTML);
+                // console.log(JSON.stringify(resultHTML));
+                // 由于是动态的将元素添加到Dom树上，所以需要手动触发tapmode检查，列表中的元素才能实现点击加速的效果
+                api.parseTapmode();
+            }
+        }, 'json');
+
+        // 验质说明
+        $api.get(app_setting + '?uid=' + $api.getStorage('uid'), function(ret) {
+            if (ret.data) {
+                var list_yanzhishuoming = $api.byId('list_yanzhishuoming');
+                var tempFn = doT.template($api.byId('yanzhishuoming').innerHTML);
+                var resultHTML = tempFn(ret.data);
+                $api.html(list_yanzhishuoming, resultHTML);
+                $api.append(list_yanzhishuoming, '<option value="0">手动输入</option>');
+            }
+        }, 'json');
+    }
+
+    function chg(obj) {
+        if (obj.options[obj.selectedIndex].value == 0)
+            document.getElementById("select_else").style.display = "";
+        else
+            document.getElementById("select_else").style.display = "none";
+        checkPostStatus();
+    }
+
+    // 验质结论
+    function tongguo(type, obj) {
+        $api.toggleCls(obj, 'aui-btn-outlined');
+        if (type == 1) {
+            $api.removeCls($api.byId('butongguo_btn'), 'aui-btn-danger');
+            $api.addCls($api.byId('butongguo_btn'), 'aui-btn-outlined');
+            $api.toggleCls(obj, 'aui-btn-info');
+
+            if ($api.hasCls(obj, 'aui-btn-info')) {
+                $api.val($api.byId('yanzhijielun'), '1');
+            } else {
+                $api.val($api.byId('yanzhijielun'), '');
+            }
+        } else {
+            $api.removeCls($api.byId('tongguo_btn'), 'aui-btn-info');
+            $api.addCls($api.byId('tongguo_btn'), 'aui-btn-outlined');
+            $api.toggleCls(obj, 'aui-btn-danger');
+
+            if ($api.hasCls(obj, 'aui-btn-danger')) {
+                $api.val($api.byId('yanzhijielun'), '2');
+            } else {
+                $api.val($api.byId('yanzhijielun'), '');
+            }
+        }
+        checkPostStatus();
+    }
+
+    var images_count = 0;
+
+    function openCamera(index) {
+        api.getPicture({
+            sourceType: 'camera',
+            encodingType: 'jpg',
+            mediaValue: 'pic',
+            destinationType: 'url',
+            allowEdit: true,
+            quality: 50,
+            // targetWidth: 100,
+            // targetHeight: 100,
+            saveToPhotoAlbum: false
+        }, function(ret, err) {
+            if (ret.data) {
+                index = index || 1;
+                var div_image_i = 'div_image' + index;
+                var image_i = 'image' + index;
+                $api.attr($api.byId(div_image_i), 'onclick', 'imageBrowser(' + index + ')');
+                $api.attr($api.byId(image_i), 'src', ret.data);
+                var _str = '<img src="../image/del@2x.png" id="div_image_i'+index+'" class="image-close" onclick="close_image('+index+');stopEvt(event);"></img>';
+                $api.append($api.byId(div_image_i), _str);
+                images_count = (images_count>=5)?5:(++images_count);
+                checkPostStatus();
+                // 保存图片到本地
+                imagesYanzhiStorage[index-1] = ret.data;
+                $api.setStorage(api.pageParam.f_stdno+'imagesYanzhiStorage', JSON.stringify(imagesYanzhiStorage));
+            } else {
+                // alert(JSON.stringify(err));
+                // 拍照取消动作
+                // images_count = (images_count<=0)?0:(--images_count);
+                // checkPostStatus();
+            }
+            var _count = '验质照片（' + images_count + '/5）';
+            $api.html($api.byId('yanzhizhaopian'), _count);
+        });
+
+        // var cameraTool = api.require('cameraTool');
+        // cameraTool.openCamera(function(ret, err) {
+        //   api.prompt({ title: "信息", msg: "图片路径：" + ret.imgPath, buttons: ["取消", "确定"] });
+        // });
+    }
+
+    function imageBrowser(index,type) {
+        index = index || 1;
+        var image_i = 'image1' + index;
+        if(type != 'maozhong'){
+          image_i = 'image' + index;
+        }
+
+        var images1 = $api.attr($api.byId(image_i), 'src');
+        var imagetest = '../image/nopic.png';
+        if(images1 != imagetest){
+
+        var imageBrowser = api.require('imageBrowser');
+        imageBrowser.openImages({
+            showList: false,
+            tapClose: true,
+            imageUrls: [
+              images1
+            ]
+        });
+        }
+    }
+
+    var hasPostBtn = true;
+    function post_yanzhi() {
+      if(hasPostBtn){
+        return false;
+      }
+      hasPostBtn = true;
+
+        var f_ylstr4 = $api.val($api.byId('list_yanzhishuoming'));
+        if(f_ylstr4 == 0){
+          f_ylstr4 = $api.val($api.byId('select_else'));
+        }
+        var f_ylflt1 = $api.val($api.byId('yanzhijielun'));
+        var image1 = $api.attr($api.byId('image1'), 'src');
+        var image2 = $api.attr($api.byId('image2'), 'src');
+        var image3 = $api.attr($api.byId('image3'), 'src');
+        var image4 = $api.attr($api.byId('image4'), 'src');
+        var image5 = $api.attr($api.byId('image5'), 'src');
+        api.showProgress({
+            title: '提交中...',
+            text: '正在进行中...',
+            modal: false
+        });
+         // 表单方式提交数据或文件
+        api.ajax({
+            url: app_yanzhi,
+            method: 'post',
+            data: {
+                values: {
+                    f_stdno: api.pageParam.f_stdno,
+                    f_ylstr4: f_ylstr4,
+                    f_ylflt1: f_ylflt1
+                },
+                files: {
+                    file1: image1,
+                    file2: image2,
+                    file3: image3,
+                    file4: image4,
+                    file5: image5
+                }
+            }
+        }, function(ret, err) {
+          // console.log(JSON.stringify(ret));
+            if (ret.code==0) {
+               api.hideProgress();
+                api.alert({
+                    msg: JSON.stringify(ret.msg)
+                }, function(ret, err) {
+                  // 删除本地图片存储
+                  $api.rmStorage(api.pageParam.f_stdno+'imagesYanzhiStorage');
+                  api.sendEvent({
+                      name: 'reload'
+                  });
+                  api.closeWin();//返回上一页面
+                });
+            }else{
+              api.hideProgress();
+                api.alert({
+                    msg: JSON.stringify(ret.msg)
+                });
+            }
+          hasPostBtn = false;
+
+        });
+
+    }
+
+    function checkPostStatus() {
+        var f_ylstr4 = $api.val($api.byId('list_yanzhishuoming'));
+        var f_ylflt1 = $api.val($api.byId('yanzhijielun'));
+        if (f_ylstr4 && f_ylflt1 && (images_count==5)) {
+            hasPostBtn = false;
+            $api.addCls($api.byId('post_btn'), 'background-03A9F4');
+        } else {
+            $api.removeCls($api.byId('post_btn'), 'background-03A9F4');
+        }
+    }
+
+    function close_image(index){
+      var div_image_i = 'div_image' + index;
+      $api.attr($api.byId(div_image_i), 'onclick', 'openCamera(' + index + ')');
+      $api.attr($api.byId('image'+index), 'src','../image/pic1.png');
+      $api.remove($api.byId('div_image_i'+index));
+      images_count = (images_count<=0)?0:(--images_count);
+      var _count = '验质照片（' + images_count + '/5）';
+      $api.html($api.byId('yanzhizhaopian'), _count);
+      // 保存图片到本地
+      imagesYanzhiStorage[index-1] = '';
+      $api.setStorage(api.pageParam.f_stdno+'imagesYanzhiStorage', JSON.stringify(imagesYanzhiStorage));
+    }
+    function stopEvt(e) {
+            e.stopPropagation();//阻止点击事件向上冒泡
+        }
+</script>
+
+</html>

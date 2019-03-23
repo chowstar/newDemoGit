@@ -1,0 +1,104 @@
+<!-- <!DOCTYPE html> -->
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>验质说明快捷管理</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <link rel="stylesheet" type="text/css" href="../css/aui.css" />
+    <style>
+        .empty {
+            text-align: center;
+            padding: 120px 0;
+        }
+        /*.aui-list {
+            background-image: linear-gradient(#ffffff, #ffffff);
+        }*/
+
+        .aui-list .aui-list-item-title-font {
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .aui-bar-nav .aui-title1 {
+            color: black;
+            font-weight: 800;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="aui-bar aui-bar-nav aui-bar-light" id='aui-header'>
+        <a class="aui-pull-left aui-btn" tapmode onclick="api.closeWin();">
+            <span class="aui-iconfont aui-icon-left" style="color: #bfbfbf;"></span>
+        </a>
+        <div class="aui-title aui-title1">验质说明快捷管理</div>
+        <a class="aui-pull-right aui-btn" tapmode onclick="add();">
+            <span class="aui-iconfont aui-icon-plus" style="color:black;font-weight:700;width:56px;"></span>
+        </a>
+    </header>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+<script type="text/javascript" src="../script/api-config.js"></script>
+<script type="text/javascript">
+    apiready = function() {
+        api.parseTapmode();
+        var header = $api.byId('aui-header');
+        $api.fixStatusBar(header);
+        var headerPos = $api.offset(header);
+        var body_h = $api.offset($api.dom('body')).h;
+        api.openFrame({
+            name: 'frame4-setting1_body',
+            url: 'frame4-setting1_body.html',
+            rect: {
+                x: 0,
+                y: headerPos.h,
+                w: 'auto',
+                h: 'auto'
+            },
+            pageParam: api.pageParam
+        });
+    }
+
+    var goBack = function() {
+        api.closeWin();
+        //			if($api.getStorage('uuid') || $api.getStorage('super_trade_uuid')){
+        //				api.closeWin();
+        //			}else{
+        //				api.alert({msg:'请先登录！'});
+        //			}
+    }
+
+    add = function() {
+        api.prompt({
+                buttons: ['确定', '取消']
+            }, function(ret, err) {
+              var index = ret.buttonIndex;
+              var text = ret.text;
+              var uid = $api.getStorage('uid');
+              if(index == 1) {
+                  $api.post(app_setting, {
+                      values: {
+                          'uid': uid,
+                          'name': 1,
+                          'content': text
+                      }
+                  }, function(ret, err) {
+                    if(ret.code == 0){
+                        api.execScript({
+                            frameName: 'frame4-setting1_body',
+                            script: 'window.location.reload();'
+                        });
+                    }
+                  }, 'json');
+                }
+        });
+
+    }
+</script>
+
+</html>

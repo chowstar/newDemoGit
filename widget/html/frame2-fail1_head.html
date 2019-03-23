@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>验质说明快捷管理</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/aui.css" />
+    <style>
+        .empty{ text-align: center; padding: 120px 0; }
+        .aui-list {
+            background-image: linear-gradient(#ffffff, #ffffff);
+        }
+        .aui-list .aui-list-item-title-font{
+          font-size: 0.75rem;
+          font-weight: 700;
+        }
+        .aui-bar-nav .aui-title1{
+          color:black;
+          font-weight:800;
+        }
+    </style>
+</head>
+<body>
+  <header class="aui-bar aui-bar-nav aui-bar-light" id='aui-header'>
+    <a class="aui-pull-left aui-btn" tapmode onclick="api.closeWin();">
+        <span class="aui-iconfont aui-icon-left" style="color: #bfbfbf;"></span>
+    </a>
+    <div class="aui-title aui-title1" id='title'></div>
+
+</header>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/api-config.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+<script type="text/javascript" src="../script/aui-toast.js"></script>
+<script type="text/javascript" src="../script/doT.min.js"></script>
+<script type="text/javascript">
+  apiready = function() {
+    api.parseTapmode();
+    var header = $api.byId('aui-header');
+        $api.fixStatusBar(header);
+    var headerPos = $api.offset(header);
+    var body_h = $api.offset($api.dom('body')).h;
+        api.openFrame({
+            name: 'frame2-fail1_body',
+            url: 'frame2-fail1_body.html',
+            rect: {
+                x: 0,
+                y: headerPos.h,
+                w: 'auto',
+                h: 'auto'
+            },
+          pageParam:api.pageParam
+        });
+    init()
+  }
+
+  var goBack = function(){
+    api.closeWin();
+//			if($api.getStorage('uuid') || $api.getStorage('super_trade_uuid')){
+//				api.closeWin();
+//			}else{
+//				api.alert({msg:'请先登录！'});
+//			}
+  }
+
+  init = function(){
+    $api.get(app_detail + '?f_stdno='+api.pageParam.f_stdno,function(ret){
+      // console.log(JSON.stringify(ret.data));
+        if (ret.data) {
+      $api.html($api.byId('title'),'详情：'+ret.data.F_StdNo);
+        }
+    },'json');
+  }
+</script>
+</html>

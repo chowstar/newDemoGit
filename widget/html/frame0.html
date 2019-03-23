@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>云博电子称重验质软件</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <link rel="stylesheet" type="text/css" href="../css/aui.css" />
+    <style>
+        .empty {
+            text-align: center;
+            padding: 120px 0;
+        }
+
+        .aui-list {
+            background-image: linear-gradient(#ffffff, #ffffff);
+        }
+
+        .aui-list .aui-list-item-font {
+            font-size: 0.75rem;
+        }
+
+        .aui-list .aui-list-item-padding-right {
+            padding-right: 0;
+        }
+
+        .aui-list .aui-list-item-padding-left {
+            padding-left: 0;
+        }
+
+        .aui-list .aui-list-item-text1 {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          color: #A5A5A5
+        }
+
+        .aui-list .aui-list-item-text2 {
+          display: flex;
+          align-items: center;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          color: #000
+        }
+
+        .aui-list .aui-list-item-inner1 {
+            text-align: center;
+            padding-right: 12px;
+            padding-left: 12px;
+            border-bottom: 1px solid #fff;
+        }
+
+        .aui-list .aui-list-item-0070C0 {
+            color: #0070C0;
+        }
+
+        .aui-list .aui-list-item-border {
+            border-bottom: 1px solid #fff;
+        }
+
+        .aui-content{
+            background:rgba(249,249,249,1);
+        }
+
+        .push-status {
+            width: 100%;
+            height: 40px;
+            font-size: 16px;
+            color: #888;
+            line-height: 40px;
+            text-align: center;
+            background-color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+
+  <div id='list'></div>
+<script type="text/template" id="template">
+    {{~it:value:index}}
+  <div class="aui-content" >
+      <ul class="aui-list aui-media-list aui-list-item-padding-right" style="font-size:1rem;padding:0 0.5rem;margin-bottom:0.25rem;border-bottom:none">
+          <li class="aui-list.aui-list-noborder aui-list-item-padding-left aui-list-item-padding-right" onclick="yanzhi('{{=value.F_StdNo}}','{{=value.F_CarNo}}')">
+              <div class="aui-media-list-item-inner">
+                    <div class="aui-list-item-inner aui-list-item-padding-right aui-list-item-font">
+                    <div style="float:left;">
+                      <div class="aui-list-item-text1">流水号</div>
+                      <div class="aui-list-item-text1">车牌号</div>
+                      <div class="aui-list-item-text1">货物名称</div>
+                    </div>
+                    <div style="float:left;padding-left:0.5rem">
+                      <div class="aui-list-item-text2">{{=value.F_StdNo}}</div>
+                      <div class="aui-list-item-text2">{{=value.F_CarNo}}</div>
+                      <div class="aui-list-item-text2">{{=value.F_ProName}}</div>
+                    </div>
+                    <div class="aui-list-item-text1" >
+                      <div style="float:left;">毛重时间</div><div style="float:left;margin-left:0.5rem" class="aui-list-item-text2">{{=value.F_GrossTime}}</div>
+                      <div style="float:right;margin-left:0.25rem">毛重</div><div style="float:left;margin-left:0.5rem" class="aui-list-item-text2">{{=value.F_Gross}}</div>
+                    </div>
+                    </div>
+                  </div>
+                  <div class="aui-list-item-media" style="padding:0;width:auto;">
+                      <!-- <ul>
+                          <li class="aui-media-list" style="padding:0;" onclick="openWinto('frame0-pass1_head','../html/frame0-pass1_head')">
+                              <div class="aui-media-list-item-inner">
+                                  <div class="aui-list-item-inner aui-list-item-inner1">
+                                      <div class="aui-list-item-title">开始验质</div>
+                                      <div class="aui-list-item-title">(1/5)</div>
+                                  </div>
+                              </div>
+                          </li>
+                          <li class="aui-media-list" style="padding:0;" onclick="gotoDetail('{{=value.F_StdNo}}')">
+                              <div class="aui-media-list-item-inner aui-list-item-border">
+                                  <div class="aui-list-item-inner" style="text-align:center;padding-right:0;background:#dfdfdf">
+                                      <div class="aui-list-item-title aui-list-item-0070C0">详情</div>
+                                  </div>
+                              </div>
+                          </li>
+                      </ul> -->
+                  </div>
+              </div>
+          </li>
+      </ul>
+  </div>
+  {{~}}
+</script>
+<div class="push-status" id="pushStatus">上拉显示更多</div>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/api-config.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+<script type="text/javascript" src="../script/aui-toast.js"></script>
+<script type="text/javascript" src="../script/doT.min.js"></script>
+<script type="text/javascript">
+    apiready = function() {
+
+      // 监听滚动到Frame底部的事件
+      api.addEventListener({
+          name: 'reload'
+      }, function(ret, err) {
+        stat();
+      });
+
+        // 初始化事件监听
+        initEventListenner_scrolltobottom();
+
+        initRefresh();
+
+        init();
+    }
+
+    var app_list_url = app_list + '?status=0';
+    var page = 1;
+    var size = 20;
+    var loadMore_ = false;
+    var hasMore_ = true;
+    init = function() {
+        if (!loadMore_) {
+            // 显示加载状态对话框
+            api.showProgress({
+                style: 'default',
+                animationType: 'fade',
+                title: '努力加载中...',
+                text: '请稍后...',
+                modal: false
+            });
+            setTimeout(function() {
+                // 隐藏加载状态对话框
+                api.hideProgress();
+            }, 500);
+        }
+
+        if (!hasMore_) {
+            return false;
+        }
+
+        // 如果是加载更多，需要实现分页
+        if (loadMore_) {
+            page++;
+        } else {
+            page = 1;
+        }
+        var _url = app_list_url || (app_list + '?status=0');
+        _url += "&page=" + page + "&size=" + size;
+        $api.get(_url, function(ret) {
+            // 恢复下拉刷新的状态
+            api.refreshHeaderLoadDone();
+
+            // 在界面中更新列表显示
+            if (ret.data && ret.data.length > 0) {
+                var list = $api.byId('list');
+                var tempFn = doT.template($api.byId('template').innerHTML);
+                var resultHTML = tempFn(ret.data);
+                // 判断是否是加载更多，如果是加载更多，则追加到list中
+                if (loadMore_) {
+                    $api.append(list, resultHTML);
+                } else {
+                    // 否则，直接替换list中的内容
+                    $api.html(list, resultHTML);
+                }
+                // 如果服务器端已经没有更多数据返回，更新提示信息
+                if (ret.data.length < size) {
+                    hasMore_ = false;
+                    var pushStatus = $api.byId('pushStatus');
+                    pushStatus.innerHTML = "没有啦！";
+                }
+                api.parseTapmode();
+            } else {
+                hasMore_ = false;
+                var pushStatus = $api.byId('pushStatus');
+                pushStatus.innerHTML = "没有啦！";
+            }
+            api.hideProgress();
+        }, 'json');
+    }
+
+    function initEventListenner_scrolltobottom() {
+        // 监听滚动到Frame底部的事件
+        api.addEventListener({
+            name: 'scrolltobottom',
+            extra: {
+                threshold: 300 // 距离底部还有多少触发scrolltobottom事件
+            }
+        }, function(ret, err) {
+            loadMore_ = true;
+            // 获取更多的商品
+            init();
+        });
+    }
+
+    //实现下拉刷新功能
+    function initRefresh() {
+        api.setRefreshHeaderInfo({
+            visible: true,
+            //            loadingImg: 'widget://image/refresh.png',
+            bgColor: '#fff',
+            textColor: 'rgba(0,169,241,0.7)',
+            showTime: true
+        }, function(ret, err) {
+            var list = $api.byId('list');
+            $api.html(list, '');
+            // 刷新列表
+            stat();
+            api.refreshHeaderLoadDone();
+        });
+    }
+
+    function stat(){
+      page = 1;
+      loadMore_ = false;
+      hasMore_ = true;
+      $api.html($api.byId('list'), '');
+      var pushStatus = $api.byId('pushStatus');
+      pushStatus.innerHTML = "上拉显示更多";
+      init();
+    }
+
+    function gotoDetail(f_stdno) {
+        openWinto('frame2-fail1_head', '../html/frame2-fail1_head', {
+            f_stdno: f_stdno
+        })
+    }
+
+    function yanzhi(f_stdno,title){
+      openWinto('reportdetail_head','../html/reportdetail_head',{
+        title:title,
+        f_carno:title,
+        f_stdno:f_stdno,
+      })
+    }
+</script>
+
+</html>

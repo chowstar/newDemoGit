@@ -1,0 +1,282 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+		<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../css/aui.css" />
+		<style type="text/css">
+
+			html, body {
+				background: #fff;
+
+			}
+			.logo {
+				height: 160px;
+				display: -webkit-box;
+				-webkit-box-orient: horizontal;
+				-webkit-box-pack: center;
+				-webkit-box-align: center;
+				box-orient: horizontal;
+				box-pack: center;
+				box-align: center;
+			}
+			.login-area {
+				text-align: center;
+			}
+			.login-area img {
+				width: 75px;
+				height: 75px;
+				border-radius: 8px;
+				-webkit-border-radius: 8px;
+			}
+			.login-area p {
+				padding: 5px 0 0 0;
+				font-size: 16px;
+				color: #999;
+			}
+			.nametp{
+				height: 50px;
+				display: -webkit-box;
+				-webkit-box-orient: horizontal;
+				-webkit-box-pack: center;
+				-webkit-box-align: center;
+				box-orient: horizontal;
+				box-pack: center;
+				box-align: center;
+			}
+			.nametp-area {
+				font-weight: bolder;
+				font-size: 18px;
+				text-align: center;
+			}
+			.form {
+				padding: 0 30px;
+			}
+			.form-row {
+				display: -webkit-box;
+				display: -webkit-flex;
+				display: flex;
+				-webkit-box-orient: horizontal;
+				-webkit-flex-flow: row;
+				flex-flow: row;
+				width: 100%;
+				padding: 15px;
+				position: relative;
+			}
+			.form-row:after {
+				content: "";
+				position: absolute;
+				bottom: 0px;
+				left: 0px;
+				right: 0px;
+				border-bottom: 1px solid #e0e0e0;
+				-webkit-transform: scaleY(.5);
+				-webkit-transform-origin: 0 0;
+			}
+			.form-row span {
+				display: block;
+				width: 50px;
+				color: #959595;
+			}
+			.form-row span {
+				font-size: 22px;
+			}
+			.form-row .input-box {
+				-webkit-box-flex: 1;
+				-webkit-flex: 1;
+				flex: 1;
+				padding-top: 2px;
+			}
+			.form-row .input-box input {
+				background: rgba(0,0,0,0);
+				border: none;
+				outline: none;
+				color:#999;
+				padding: 4px;
+				margin: 0;
+			}
+			.form-btn {
+				padding: 30px 30px 15px 30px;
+			}
+			.aui-btn-080DFF {
+				background: #BFBFBF !important;
+				color: #000 !important;
+				font-weight: bolder;
+				border: none;
+				outline: none;
+			}
+			.form-btn button:active {
+				/*background: rgba(255,152,0,0.8) !important;*/
+				background: #BFBFBF !important;
+			}
+			.form-o {
+				padding: 0 30px;
+			}
+			.form-o span {
+				float: left;
+				color: #BFBFBF;
+			}
+			.form-o span:last-child {
+				float: right;
+			}
+			.sdk-list  p {
+				-webkit-box-flex: 1;
+				-webkit-flex: 1;
+				flex: 1;
+			}
+			.sdk-list p span i {
+				font-size: 50px;
+			}
+			.sdk-list p:nth-child(2) {
+				display: -webkit-box;
+				-webkit-box-orient: horizontal;
+				-webkit-box-pack: center;
+				display: block;
+				box-orient: horizontal;
+				box-pack: center;
+			}
+			.nametp1{
+				width: 100%;
+				padding-top:50px;
+				bottom: 50px;
+				height: 50px;
+				display: -webkit-box;
+				-webkit-box-orient: horizontal;
+				-webkit-box-pack: center;
+				-webkit-box-align: center;
+				box-orient: horizontal;
+				box-pack: center;
+				box-align: center;
+			}
+			.nametp-area1 {
+				font-size: 14px;
+				text-align: center;
+			}
+			input[type="text"], input[type="password"], input[type="search"], input[type="email"], input[type="tel"], input[type="url"], input[type="date"], input[type="datetime-local"], input[type="time"], input[type="number"], select, textarea{
+				height:auto;
+			}
+			#getCreateCode {
+				background: antiquewhite;
+				font-style: italic;
+				color: blue;
+			}
+		</style>
+	</head>
+	<body style="position:fixed;">
+		<div class="top-area" >
+			<div class="logo">
+				<div class="login-area">
+					<img src="../icon/icon150x150.png" alt="" title="" />
+				</div>
+			</div>
+			<div class="nametp">
+				<div class="nametp-area">
+				云博电子称重验质软件
+				</div>
+			</div>
+			<div class="form">
+				<div class="form-area">
+					<div class="form-row">
+						<span class="aui-iconfont aui-icon-mobile">&nbsp;|</span>
+						<div class="input-box">
+							<input type="text" name="phone" id="username" value="" placeholder="请输入账号" />
+						</div>
+					</div>
+					<div class="form-row">
+						<span class="aui-iconfont aui-icon-lock">&nbsp;|</span>
+						<div class="input-box">
+							<input type="password" name="phone" id="password" value="" placeholder="请输入密码" />
+						</div>
+					</div>
+				</div>
+				<!--<div class="form-row">-->
+					<!--<span class="aui-iconfont aui-icon-lock">&nbsp;|</span>-->
+					<!--<div class="input-box">-->
+						<!--<input type="text" name="valid_code" id="valid_code" value="" placeholder="请输入验证码" />-->
+					<!--</div>-->
+					<!--<div class="aui-input-addon">-->
+						<!--<div class="aui-btn aui-btn-default" id="getCreateCode" tapmode onclick="getCreateCode()">获取验证码</div>-->
+					<!--</div>-->
+				<!--</div>-->
+			</div>
+			<div class="form-btn">
+				<button class="aui-btn  aui-btn-block aui-btn-080DFF" id="login-btn" tapmode onclick="login()">
+					登  录
+				</button>
+			</div>
+			<!-- <div class="form-o">
+				<span tapmode onclick="goRegist();">注册账号</span>
+				<span tapmode  onclick="goForgetPwd();">忘记密码？</span>
+			</div> -->
+			<div class="nametp1">
+				<div class="nametp-area1">
+				Powered by 云博电子
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="../script/api.js"></script>
+	<script type="text/javascript" src="../script/api-config.js"></script>
+	<script type="text/javascript" src="../script/common.js"></script>
+	<script type="text/javascript" src="../script/aui-toast.js"></script>
+	<script type="text/javascript">
+
+		apiready = function(){
+			if($api.getStorage('uid')){
+				api.openWin({
+					name: 'index',
+					url: 'widget://index.html',
+					// delay: idelay,
+					// allowEdit:aedit,
+					// pageParam: param,
+					// slidBackEnabled:true,
+					// 	vScrollBarEnabled:false
+				});
+			}
+		}
+
+		login = function(){
+			var username = $api.val($api.byId('username'));
+			var password = $api.val($api.byId('password'));
+			if(!username){
+				showToast('请输入有效的账号！');
+				return false;
+			}
+			if(!password){
+				showToast('请输入登录密码！');
+				return false;
+			}
+			var toast = showLoading();
+			$api.post(app_login,{
+				values: {
+					'username':username,
+					'password':password
+				}
+			},function(ret,err){
+				if (ret.code == 0) {
+					$api.setStorage('uid',ret.data.uid);
+					api.openWin({
+						name: 'index',
+						url: 'widget://index.html',
+						// delay: idelay,
+						// allowEdit:aedit,
+						// pageParam: param,
+						// slidBackEnabled:true,
+				    // 	vScrollBarEnabled:false
+					});
+
+				} else if(ret.msg){
+					api.alert({ msg: ret.msg});
+				}
+				toast.hide();
+			},'json');
+		}
+		//
+		// function getCreateCode(){
+		// 	var result = createCode();
+		// 	var getCreateCode = $api.byId('getCreateCode')
+		// 	$api.html(getCreateCode,result);}
+	</script>
+</html>

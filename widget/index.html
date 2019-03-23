@@ -1,0 +1,238 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>底部导航</title>
+    <link rel="stylesheet" type="text/css" href="./css/api.css" />
+    <link rel="stylesheet" type="text/css" href="./css/style.css" />
+    <link rel="stylesheet" type="text/css" href="./css/aui.css" />
+    <style>
+        header {
+            background-color: #ffffff;
+        }
+
+        header ul li {
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            display: none;
+            color: #323237;
+            position: relative;
+            font-size: 18px;
+        }
+
+        header ul li.active {
+            display: block;
+        }
+
+        #footer {
+            background-color: #ffffff;
+            position: fixed;
+            right: 0;
+            left: 0;
+            bottom: 0;
+        }
+
+        #footer ul li {
+            padding-top: 30px;
+            margin-top: 3px;
+            padding-bottom: 2px;
+            background: url() no-repeat center 2px;
+            background-size: auto 24px;
+            text-align: center;
+            font-size: 10px;
+        }
+
+        #footer ul li.active {
+            /*background-color: #D9D9D9;*/
+        }
+
+        #footer ul li:nth-child(1) {
+            background-image: url(./image/3off.png);
+        }
+
+        #footer ul li:nth-child(2) {
+            background-image: url(./image/1off.png);
+        }
+
+        #footer ul li:nth-child(3) {
+            background-image: url(./image/2off.png);
+        }
+
+        #footer ul li:nth-child(4) {
+            background-image: url(./image/4off.png);
+        }
+
+
+        #footer ul li:nth-child(1).active {
+            background-image: url(./image/3on.png);
+        }
+
+        #footer ul li:nth-child(2).active {
+            background-image: url(./image/1on.png);
+        }
+
+        #footer ul li:nth-child(3).active {
+            background-image: url(./image/2on.png);
+        }
+
+        #footer ul li:nth-child(4).active {
+            background-image: url(./image/4on.png);
+        }
+
+        .flex-con {
+            overflow: auto
+        }
+
+        .aui-head-set{
+          height:50px;
+          background-color: #fff;
+          display: flex;
+          align-items: center;
+        }
+
+        .aui-head-title{
+          margin-left: 37px;
+        }
+
+        .pic{
+          height:22px;
+          width: 22px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrap" class="flex-wrap flex-vertical">
+        <header>
+            <ul>
+                <li class="border-b active">
+                  <span class='aui-head-title'>云博电子称重验质软件
+                </span>
+                <span class='aui-pull-right aui-btn aui-head-set' onclick="gotoDetail()">
+                  <img class='pic' src="./image/set.png">
+                </span>
+                </li>
+                <li class="border-b">
+                  <span class='aui-head-title'>云博电子称重验质软件
+                </span>
+                  <a class='aui-pull-right aui-btn aui-head-set' onclick="gotoDetail()">
+                    <img class='pic' src="./image/set.png">
+                  </a>
+                </li>
+                <li class="border-b">
+                  <span class='aui-head-title'>云博电子称重验质软件
+                </span>
+                <a class='aui-pull-right aui-btn aui-head-set' onclick="gotoDetail()">
+                  <img class='pic' src="./image/set.png">
+                </a>
+                </li>
+                <li class="border-b">
+                  <span class='aui-head-title'>信息统计
+                </span>
+                <a class='aui-pull-right aui-btn aui-head-set' onclick="gotoDetail()">
+                  <img class='pic' src="data:image/png;base64,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">
+                </a>
+                </li>
+            </ul>
+        </header>
+
+        <!-- <div id="main" class="flex-con"></div> -->
+
+        <div id="footer" class="border-t">
+            <ul class="flex-wrap">
+                <li tapmode="hover" onclick="randomSwitchBtn( this );" class="flex-con active">等待验质</li>
+                <li tapmode="hover" onclick="randomSwitchBtn( this );" class="flex-con">已通过</li>
+                <li tapmode="hover" onclick="randomSwitchBtn( this );" class="flex-con">未通过</li>
+                <li tapmode="hover" onclick="randomSwitchBtn( this );" class="flex-con">统计信息</li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+
+</html>
+<script type="text/javascript" src="script/api.js"></script>
+<script type="text/javascript" src="script/common.js"></script>
+<script type="text/javascript" src="script/api-config.js"></script>
+<script type="text/javascript" src="script/aui-toast.js"></script>
+<script type="text/javascript">
+    apiready = function() {
+        $api.fixStatusBar($api.dom('header'));
+        api.setStatusBarStyle({
+            style: 'dark',
+            color: '#6ab494'
+        });
+        funIniGroup();
+    }
+
+    function funIniGroup() {
+        var eHeaderLis = $api.domAll('header li'),
+            frames = [];
+        for (var i = 0, len = eHeaderLis.length; i < len; i++) {
+            frames.push({
+                name: 'frame' + i,
+                url: './html/frame' + i + '.html',
+                bgColor: 'rgba(0,0,0,.2)',
+                // bounces:true
+            })
+        }
+        var header = $api.dom('header');
+        var headerPos = $api.offset(header);
+  			var body_h = $api.offset($api.dom('body')).h;
+  			var footer_h = $api.offset($api.byId('footer')).h;
+        api.openFrameGroup({
+            name: 'group',
+            scrollEnabled: false,
+            rect: {
+                x: 0,
+                y: $api.dom('header').offsetHeight,
+                w: api.winWidth,
+                h: body_h - headerPos.h - footer_h
+            },
+            index: 0,
+            preload : true,
+            frames: frames
+        }, function(ret, err) {
+
+        });
+
+    }
+
+    // 随意切换按钮
+    function randomSwitchBtn(tag) {
+        if (tag == $api.dom('#footer li.active')) return;
+        var eFootLis = $api.domAll('#footer li'),
+            eHeaderLis = $api.domAll('header li'),
+            index = 0;
+        for (var i = 0, len = eFootLis.length; i < len; i++) {
+            if (tag == eFootLis[i]) {
+                index = i;
+            } else {
+                $api.removeCls(eFootLis[i], 'active');
+                $api.removeCls(eHeaderLis[i], 'active');
+            }
+        }
+        $api.addCls(eFootLis[index], 'active');
+        $api.addCls(eHeaderLis[index], 'active');
+        api.setFrameGroupIndex({
+            name: 'group',
+            index: index
+        });
+        if(index != 3){
+          api.execScript({
+              frameName: 'frame'+index,
+              script: 'stat();'
+          });
+        }
+    }
+    function gotoDetail() {
+      api.openWin({
+        name: 'setting',
+        url: 'widget://html/setting.html',
+      });
+    }
+</script>

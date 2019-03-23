@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>****称重验质软件</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <link rel="stylesheet" type="text/css" href="../css/aui.css" />
+    <style>
+        .aui-content-nobreak {
+            white-space: nowrap;
+        }
+
+        .empty {
+            text-align: center;
+            padding: 120px 0;
+        }
+
+        .aui-list {
+            background-image: linear-gradient(#ffffff, #ffffff);
+        }
+
+        .aui-list-item-lt {
+            width: 42%;
+            float: left;
+            border-right: 1px solid #ddd;
+        }
+
+        .aui-list-item-rt {
+            width: 16%;
+            float: left;
+        }
+
+        .aui-list .aui-list-item1 {
+            padding-left: 28%;
+            display: flex;
+            align-items: center;
+        }
+
+        .aui-grid .aui-col-xs-4-padding {
+            padding: 0.3rem 0 0 0;
+        }
+
+        .aui-grid .aui-col-xs-3-padding {
+            padding: 0.3rem 0 0 0;
+        }
+
+        .aui-btn1 {
+            width: 90%;
+            height: 2rem;
+            line-height: 2rem;
+            font-weight: 400;
+            font-size: 0.8rem;
+        }
+
+        .label1 {
+            padding-left: 0.6rem;
+            height: 0.85rem;
+            font-size: 0.6rem;
+            font-family: PingFangSC-Regular;
+            color: rgba(151, 151, 151, 1);
+            line-height: 0.85rem;
+        }
+
+        .selectwu {
+            width: 42%;
+            height: 1.8rem;
+            background: linear-gradient(180deg, rgba(250, 250, 250, 1), rgba(242, 242, 242, 1));
+            border-radius: 5px;
+            border: 0.5px solid rgba(225, 225, 225, 1);
+            display: flex;
+            align-items: center;
+            font-size: 0.7rem;
+            float: left;
+        }
+
+        .searchwu {
+            width: 10%;
+            height: 1.8rem;
+            background: linear-gradient(180deg, rgba(250, 250, 250, 1), rgba(242, 242, 242, 1));
+            border-radius: 5px;
+            border: 0.5px solid rgba(225, 225, 225, 1);
+            display: flex;
+            align-items: center;
+            float: right;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <span class="label1">
+    快捷统计
+  </span>
+        <section class="aui-grid aui-margin-t-4">
+            <div class="aui-row" style="margin-left:0.3rem;margin-right:0.3rem">
+                <div class="aui-col-xs-3 aui-col-xs-3-padding">
+                    <div id='today' class="aui-btn aui-btn1 " tapmode onclick="stat(1,this)">今日</div>
+                </div>
+                <div class="aui-col-xs-3 aui-col-xs-3-padding">
+                    <div id='tomorrow' class="aui-btn aui-btn1 " tapmode onclick="stat(2,this)">昨日</div>
+                </div>
+                <div class="aui-col-xs-3 aui-col-xs-3-padding">
+                    <div id='thismonth' class="aui-btn aui-btn1 " tapmode onclick="stat(3,this)">本月</div>
+                </div>
+                <div class="aui-col-xs-3 aui-col-xs-3-padding">
+                    <div id='thatmonth' class="aui-btn aui-btn1 " tapmode onclick="stat(4,this)">上月</div>
+                </div>
+                <div class="aui-col-xs-4 aui-col-xs-4-padding">
+                    <div id='thisyear' class="aui-btn aui-btn1 " tapmode onclick="stat(5,this)">本年度</div>
+                </div>
+                <div class="aui-col-xs-4 aui-col-xs-4-padding">
+                    <div id='thatyear' class="aui-btn aui-btn1 " tapmode onclick="stat(6,this)">上年度</div>
+                </div>
+            </div>
+        </section>
+        <span class="label1">高级统计</span>
+        <div style="margin-left:0.6rem;margin-right:0.6rem;height:2rem">
+            <div class="selectwu">
+                <input type="date" id='starttime' value="" style="display:flex;align-items:center;justify-content:center"></input>
+            </div>
+            <span style="float:left;font-size:0.8rem;margin:0 3px;height:1.8rem;line-height:1.8rem;"> - </span>
+            <div class="selectwu">
+                <input type="date" id='endtime' value="" style="display:flex;align-items:center;justify-content:center"></input>
+            </div>
+            <div class="searchwu" tapmode onclick="stat(0,this)">
+                <div style="margin:0 auto;float:right;">
+                    <img src="../image/search.png" style="width:1.1rem;height:1.1rem;opacity: 0.6;"></img>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="aui-content aui-content-nobreak"> -->
+    <!-- <div class='aui-list-item-lt'>
+    <ul class="aui-list aui-list-in">
+      <li class="aui-list-item">
+          <div class="aui-list-item-inner">
+              <div class="aui-list-item-title">
+                <input type="date" id='starttime' value="2018-07-01" style="display:flex;align-items:center;font-size:0.7rem;"></input>
+              </div>
+              <div class="aui-list-item-right">
+                <img src="../image/sanjiaoxia.png" width="24px" height="24px" />
+              </div>
+          </div>
+      </li>
+    </ul>
+  </div> -->
+    <!-- <div class='aui-list-item-lt'>
+    <ul class="aui-list aui-list-in">
+      <li class="aui-list-item">
+          <div class="aui-list-item-inner">
+              <div class="aui-list-item-title">
+                <input type="date" id='endtime' value="2018-07-01" style="display:flex;align-items:center;font-size:0.7rem;"></input>
+              </div>
+              <div class="aui-list-item-right">
+                <img src="../image/sanjiaoxia.png" width="24px" height="24px" />
+              </div>
+          </div>
+      </li>
+    </ul>
+  </div> -->
+    <!-- <div class='aui-list-item-rt'>
+    <ul class="aui-list aui-list-in">
+      <li class="aui-list-item aui-list-item1" tapmode onclick="stat(0)">
+          <img src="../image/search.png" width="30px" height="30px" />
+      </li>
+    </ul>
+  </div> -->
+    <!-- </div> -->
+
+    <div class="">
+        <ul class="aui-list aui-media-list">
+            <li class="aui-list-item aui-list-item-middle">
+                <div class="aui-media-list-item-inner">
+                    <div class="aui-list-item-media" style="width: 4.8rem;border-right:1px solid #ddd;">
+                        物质总车数
+                    </div>
+                    <div class="aui-list-item-inner" style="text-align:center;" id='count_F_StdNo'>
+                        0
+                    </div>
+                </div>
+            </li>
+            <li class="aui-list-item aui-list-item-middle">
+                <div class="aui-media-list-item-inner">
+                    <div class="aui-list-item-media" style="width: 4.8rem;border-right:1px solid #ddd;">
+                        已通过
+                    </div>
+                    <div class="aui-list-item-inner" style="text-align:center;" id='count_F_YLFlt1'>
+                        0
+                    </div>
+                </div>
+            </li>
+            <li class="aui-list-item aui-list-item-middle">
+                <div class="aui-media-list-item-inner">
+                    <div class="aui-list-item-media" style="width: 4.8rem;border-right:1px solid #ddd;">
+                        未通过
+                    </div>
+                    <div class="aui-list-item-inner" style="text-align:center;" id='count_F_YLFlt2'>
+                        0
+                    </div>
+                </div>
+            </li>
+            <li class="aui-list-item aui-list-item-middle">
+                <div class="aui-media-list-item-inner">
+                    <div class="aui-list-item-media" style="width: 4.8rem;border-right:1px solid #ddd;">
+                        过磅总净重
+                    </div>
+                    <div class="aui-list-item-inner" style="text-align:center;" id='total_F_Net'>
+                        0
+                    </div>
+
+                </div>
+            </li>
+        </ul>
+    </div>
+    <!-- <span class="label1">
+    快捷统计
+  </span>
+  <section class="aui-grid aui-margin-t-4">
+    <div class="aui-row" style="margin-left:0.3rem;margin-right:0.3rem">
+        <div class="aui-col-xs-3 aui-col-xs-3-padding" tapmode onclick="stat(1)">
+            <div class="aui-btn aui-btn1">今日</div>
+        </div>
+        <div class="aui-col-xs-3 aui-col-xs-3-padding" tapmode onclick="stat(2)">
+            <div class="aui-btn aui-btn1">昨日</div>
+        </div>
+        <div class="aui-col-xs-3 aui-col-xs-3-padding" tapmode onclick="stat(3)">
+            <div class="aui-btn aui-btn1">本月</div>
+        </div>
+        <div class="aui-col-xs-3 aui-col-xs-3-padding" tapmode onclick="stat(4)">
+            <div class="aui-btn aui-btn1">上月</div>
+        </div>
+        <div class="aui-col-xs-4 aui-col-xs-4-padding" tapmode onclick="stat(5)">
+            <div class="aui-btn aui-btn1">本年度</div>
+        </div>
+        <div class="aui-col-xs-4 aui-col-xs-4-padding" tapmode onclick="stat(6)">
+            <div class="aui-btn aui-btn1">上年度</div>
+        </div>
+    </div>
+</section> -->
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/api-config.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+<script type="text/javascript" src="../script/aui-toast.js"></script>
+<script type="text/javascript" src="../script/doT.min.js"></script>
+<script type="text/javascript">
+    apiready = function() {
+        var mydate = new Date();
+        var month = mydate.getMonth() + 1;
+        var strDate = mydate.getDate();
+        if (month >= 1 && month <= 9) {
+            month = "0" + month;
+        }
+        if (strDate >= 0 && strDate <= 9) {
+            strDate = "0" + strDate;
+        }
+        var todady = mydate.getFullYear() + '-' + month + '-' + strDate
+        $api.dom('#starttime').value = todady
+
+        var endDate = mydate.getDate() + 1;
+        if (endDate >= 0 && endDate <= 9) {
+            endDate = "0" + endDate;
+        }
+        var todady1 = mydate.getFullYear() + '-' + month + '-' + endDate
+        $api.dom('#endtime').value = todady1
+
+        stat(0);
+    }
+
+    stat = function(type, obj) {
+        // console.log(app_statistics + '?type='+ type);
+
+        var app_statistics_url = '';
+        if (type == 1) {
+            var mydate = new Date();
+            var month = mydate.getMonth() + 1;
+            var strDate = mydate.getDate();
+            if (month >= 1 && month <= 9) {
+                month = "0" + month;
+            }
+            if (strDate >= 0 && strDate <= 9) {
+                strDate = "0" + strDate;
+            }
+            var todady = mydate.getFullYear() + '-' + month + '-' + strDate
+            $api.dom('#starttime').value = todady
+
+            var endDate = mydate.getDate() + 1;
+            if (endDate >= 0 && endDate <= 9) {
+                endDate = "0" + endDate;
+            }
+            var todady1 = mydate.getFullYear() + '-' + month + '-' + endDate
+            $api.dom('#endtime').value = todady1
+        }else if (type == 2) {
+            var mydate = new Date();
+            var month = mydate.getMonth() + 1;
+            var strDate = mydate.getDate() - 1;
+            if (month >= 1 && month <= 9) {
+                month = "0" + month;
+            }
+            if (strDate > 0 && strDate <= 9) {
+                strDate = "0" + strDate;
+                var todady = mydate.getFullYear() + '-' + month + '-' + strDate
+                $api.dom('#starttime').value = todady;
+            }else if(strDate == 0){
+              var times = Date.parse(mydate);
+              var date = new Date(times-86400000);
+              var _month = date.getMonth() + 1;
+              var _day = date.getDate();
+              if (_month >= 1 && _month <= 9) {
+                  _month = "0" + _month;
+              }
+              if (_day >= 1 && _day <= 9) {
+                  _day = "0" + _day;
+              }
+              todady = date.getFullYear() + '-' + _month + '-' + _day;
+              $api.dom('#starttime').value = todady;
+            }else{
+              var todady = mydate.getFullYear() + '-' + month + '-' + strDate
+              $api.dom('#starttime').value = todady;
+            }
+
+            var endDate = mydate.getDate();
+            if (endDate >= 0 && endDate <= 9) {
+                endDate = "0" + endDate;
+            }
+            var todady1 = mydate.getFullYear() + '-' + month + '-' + endDate
+            $api.dom('#endtime').value = todady1
+        }else if (type == 3) {
+            var mydate = new Date();
+            var month = mydate.getMonth() + 1;
+            var strDate = 1;
+            if (month >= 1 && month <= 9) {
+                month = "0" + month;
+            }
+            if (strDate >= 0 && strDate <= 9) {
+                strDate = "0" + strDate;
+            }
+            var todady = mydate.getFullYear() + '-' + month + '-' + strDate
+            $api.dom('#starttime').value = todady
+
+            var endDate = mydate.getDate() + 1;
+            if (endDate >= 0 && endDate <= 9) {
+                endDate = "0" + endDate;
+            }
+            var todady1 = mydate.getFullYear() + '-' + month + '-' + endDate
+            $api.dom('#endtime').value = todady1
+        }else if (type == 4) {
+            var mydate = new Date();
+            var month = mydate.getMonth() + 1;
+            var strDate = 1;
+            if (month >= 1 && month <= 9) {
+                month = "0" + month;
+            }
+            if (strDate >= 0 && strDate <= 9) {
+                strDate = "0" + strDate;
+            }
+
+            if(month == 1){
+              var todady = mydate.getFullYear()-1 + '-' + 12 + '-' + strDate
+            }else{
+              var todady = mydate.getFullYear() + '-' + month + '-' + strDate
+            }
+
+            $api.dom('#starttime').value = todady
+            if (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12) {
+                var endDate = 31;
+            }
+            if (month == 4 || month == 6 || month == 9 || month == 11) {
+                var endDate = 30;
+            }
+            if (month == 2) {
+                year = getFullYear();
+                if (year % 4 == 0) {
+                    var endDate = 29;
+                } else {
+                    var endDate = 28;
+                }
+            }
+            if (endDate >= 0 && endDate <= 9) {
+                endDate = "0" + endDate;
+            }
+            if(month == 1){
+              var todady1 = mydate.getFullYear() + '-0' + 1 + '-' + strDate
+            }else{
+              var todady1 = mydate.getFullYear() + '-' + month + '-' + strDate
+            }
+            $api.dom('#endtime').value = todady1
+        }else if (type == 5) {
+            var mydate = new Date();
+            var todady = mydate.getFullYear() + '-01-01'
+            $api.dom('#starttime').value = todady
+
+            var month = mydate.getMonth() + 1;
+
+            var endDate = mydate.getDate() + 1;
+            if (endDate >= 0 && endDate <= 9) {
+                endDate = "0" + endDate;
+            }
+            if (month >= 1 && month <= 9) {
+                month = "0" + month;
+            }
+
+            var todady1 = mydate.getFullYear() + '-' + month + '-' + endDate
+            $api.dom('#endtime').value = todady1
+        }else if (type == 6) {
+            var mydate = new Date();
+            var year = mydate.getFullYear() - 1
+            var todady = year + '-01'+'-01'
+            $api.dom('#starttime').value = todady
+
+            var todady1 = year + '-12'+'-31'
+            $api.dom('#endtime').value = todady1
+        }
+
+        if (type) {
+            app_statistics_url = app_statistics + '?type=' + type;
+        } else {
+            var start = $api.val($api.byId('starttime')); // 2019/1/16 0:0:0
+            var date = new Date(start.replace(/-/g, '/'));
+            var time1 = date.getTime()/1000;
+            var end = $api.val($api.byId('endtime'));
+            var date2 = new Date(end.replace(/-/g, '/'));
+            var time2 = date2.getTime()/1000;
+            app_statistics_url = app_statistics + '?start_time=' + time1 + '&end_time=' + time2;
+            console.log(start);
+            console.log(end);
+              console.log(app_statistics_url);
+        }
+
+console.log(app_statistics_url);
+        $api.get(app_statistics_url, function(ret) {
+            if (ret.data) {
+                $api.html($api.byId('count_F_StdNo'), ret.data.count_F_StdNo);
+                $api.html($api.byId('count_F_YLFlt1'), ret.data.count_F_YLFlt1);
+                $api.html($api.byId('count_F_YLFlt2'), ret.data.count_F_YLFlt2);
+                $api.html($api.byId('total_F_Net'), ret.data.total_F_Net);
+                // if (ret.data.total_F_Net) {
+                //     $api.html($api.byId('total_F_Net'), ret.data.total_F_Net);
+                // }
+            }
+        }, 'json');
+
+        $api.removeCls($api.byId('tomorrow'), 'aui-btn-info');
+        $api.addCls($api.byId('tomorrow'), 'aui-btn-default');
+        $api.removeCls($api.byId('today'), 'aui-btn-info');
+        $api.addCls($api.byId('today'), 'aui-btn-default');
+        $api.removeCls($api.byId('thismonth'), 'aui-btn-info');
+        $api.addCls($api.byId('thismonth'), 'aui-btn-default');
+        $api.removeCls($api.byId('thatmonth'), 'aui-btn-info');
+        $api.addCls($api.byId('thatmonth'), 'aui-btn-default');
+        $api.removeCls($api.byId('thisyear'), 'aui-btn-info');
+        $api.addCls($api.byId('thisyear'), 'aui-btn-default');
+        $api.removeCls($api.byId('thatyear'), 'aui-btn-info');
+        $api.addCls($api.byId('thatyear'), 'aui-btn-default');
+        $api.toggleCls(obj, 'aui-btn-default');
+        $api.toggleCls(obj, 'aui-btn-info');
+    }
+</script>
+
+</html>
